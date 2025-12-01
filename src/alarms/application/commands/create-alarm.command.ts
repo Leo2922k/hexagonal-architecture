@@ -1,3 +1,5 @@
+// This is a command DTO
+// Represents the intention to create an alarm.
 export class CreateAlarmCommand {
   constructor(
     public readonly name: string,

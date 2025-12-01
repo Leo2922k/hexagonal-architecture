@@ -1,9 +1,14 @@
+// alarm-created.event-handler.ts
+// It listens for the AlarmCreatedEvent and updates the read-model database with the new alarm data.
 import { Logger } from '@nestjs/common';
 import { EventsHandler, IEventHandler } from '@nestjs/cqrs';
 import { AlarmCreatedEvent } from '../../domain/events/alarm-created.event';
 import { UpsertMaterializedAlarmRepository } from '../ports/upsert-materialized-alarm.repository';
 
+// decorator saying:
+// Whenever AlarmCreatedEvent is published to the EventBus, run this handler.
 @EventsHandler(AlarmCreatedEvent)
+
 export class AlarmCreatedEventHandler
   implements IEventHandler<AlarmCreatedEvent>
 {

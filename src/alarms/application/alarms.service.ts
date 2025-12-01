@@ -1,3 +1,6 @@
+// thin façade between controllers (presenters) and the CQRS command/query handlers.
+// just forwards requests to the command/query bus — it doesn’t contain business logic.
+
 import { Injectable } from '@nestjs/common';
 import { CreateAlarmCommand } from './commands/create-alarm.command';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';

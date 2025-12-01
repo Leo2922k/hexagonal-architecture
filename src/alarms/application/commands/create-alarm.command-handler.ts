@@ -1,3 +1,6 @@
+
+// Whenever someone executes CreateAlarmCommand, run this handler.
+// Validates → creates domain entity → persists → fires events.
 import { CommandHandler, EventBus, ICommandHandler } from '@nestjs/cqrs';
 import { CreateAlarmCommand } from './create-alarm.command';
 import { Logger } from '@nestjs/common';
@@ -11,6 +14,7 @@ export class CreateAlarmCommandHandler
 {
   private readonly logger = new Logger(CreateAlarmCommandHandler.name);
 
+  // Dependencies
   constructor(
     private readonly alarmRepository: CreateAlarmRepository,
     private readonly alarmFactory: AlarmFactory,
